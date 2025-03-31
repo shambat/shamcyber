@@ -2,4 +2,4 @@
 
 Welcome to my professional cybersecurity portfolio.  
 
-📌 **Portfolio Website:** [Click Here](https://shambat.github.io/shamcyber/)  
+📌 **Portfolio Website:** <a href="https://shambat.github.io/shamcyber/" target="_blank">Click Here</a>  
