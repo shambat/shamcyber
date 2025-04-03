@@ -476,6 +476,38 @@
                     </div>
                 </div>
                 
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                    <form id="contact-form" action="process_form.php" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" required class="form-input w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required class="form-input w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="form-input w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                            <div id="form-loading" class="hidden flex justify-center items-center py-2">
+                                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+                                <span class="ml-2 text-blue-400">Sending...</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -548,7 +580,7 @@
                 </div>
             </div>
             
-            <div class="flex flex-col items-center justify-center py-8 border-b border-gray-800">
+            <!-- <div class="flex flex-col items-center justify-center py-8 border-b border-gray-800">
                 <h4 class="text-xl font-semibold mb-6 gradient-text">Connect With Me</h4>
                 <div class="flex space-x-6">
                     <a href="https://github.com/shambat" target="_blank" class="social-icon-footer">
@@ -560,7 +592,7 @@
                     
                 </div>
             </div>
-            
+             -->
             <div class="pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Muhammad Ehtisham. All rights reserved.</p>
                 <div class="flex space-x-6 text-sm text-gray-500">
