@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.getElementById('menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, speed);
     };
     
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -131,71 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 removeHighlight(messageInput);
             }
             
-            if (isValid) {
-                const loadingSpinner = document.getElementById('form-loading');
-                loadingSpinner.classList.remove('hidden');
-                
-                const formData = new FormData(contactForm);
-                
-                fetch('process_form.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    loadingSpinner.classList.add('hidden');
-                    
-                    const messageDiv = document.createElement('div');
-                    messageDiv.className = data.success 
-                        ? 'bg-green-500 text-white p-4 rounded-lg mt-4 text-center'
-                        : 'bg-red-500 text-white p-4 rounded-lg mt-4 text-center';
-                    
-                    messageDiv.innerHTML = data.success 
-                        ? '<i class="fas fa-check-circle mr-2"></i>' + data.message
-                        : '<i class="fas fa-exclamation-circle mr-2"></i>' + data.message;
-                    
-                    const existingMessage = contactForm.querySelector('.bg-green-500, .bg-red-500');
-                    if (existingMessage) {
-                        existingMessage.remove();
-                    }
-                    
-                    contactForm.appendChild(messageDiv);
-                    
-                    if (data.success) {
-                        contactForm.reset();
-                    }
-                    
-                    setTimeout(() => {
-                        messageDiv.classList.add('fade-out');
-                        setTimeout(() => {
-                            messageDiv.remove();
-                        }, 500);
-                    }, 5000);
-                })
-                .catch(error => {
-                    loadingSpinner.classList.add('hidden');
-                    
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'bg-red-500 text-white p-4 rounded-lg mt-4 text-center';
-                    errorDiv.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Something went wrong. Please try again later.';
-                    
-                    const existingMessage = contactForm.querySelector('.bg-green-500, .bg-red-500');
-                    if (existingMessage) {
-                        existingMessage.remove();
-                    }
-                    
-                    contactForm.appendChild(errorDiv);
-                    
-                    setTimeout(() => {
-                        errorDiv.classList.add('fade-out');
-                        setTimeout(() => {
-                            errorDiv.remove();
-                        }, 500);
-                    }, 5000);
-                    
-                    console.error('Error submitting form:', error);
-                });
-            }
+         
         });
     }
     

@@ -478,7 +478,8 @@
                 
                 <div class="lg:w-1/2">
                     <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-                    <form id="contact-form" action="process_form.php" method="POST" class="space-y-6">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value="3e6fab5c-50d7-4aa0-8426-1c1c56405c53">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
@@ -507,6 +508,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="mt-4 text-center text-gray-400 text-sm">
+                        <p>Having trouble with the form? <a href="mailto:connectsham95@gmail.com" class="text-blue-400 hover:underline">Email me directly</a> instead.</p>
+                    </div>
                 </div>
             </div>
         </div>
