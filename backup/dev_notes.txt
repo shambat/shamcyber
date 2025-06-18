@@ -1,0 +1,8 @@
+Note to dev team:
+
+Don't forget to tell the security researchers that this file is fake 😉
+
+This is part of an intentional security awareness test. If you've found it — you're doing great!
+
+Keep hacking ethically!
+– Muhammad Ehtisham
