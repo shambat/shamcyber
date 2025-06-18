@@ -1,0 +1,10 @@
+# Simulated .env file contents
+
+DB_PASSWORD=FakeP@ssword123!
+API_KEY=ak_test_fakekey123456789
+SECRET_KEY=th1sisjust4fun
+
+Note: This is a decoy file placed for educational security awareness.  
+You didn’t find a vulnerability — you found a lesson in deception.
+
+– ehtisham.space
