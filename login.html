@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | ehtisham.space</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f111a;
+      color: #e2e8f0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+
+    .flash {
+      animation: flash 0.5s ease-in-out 4;
+    }
+
+    @keyframes flash {
+      0% { background-color: #0f111a; }
+      50% { background-color: #8b0000; }
+      100% { background-color: #0f111a; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      background-color: #1e293b;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    .login-container {
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00ffff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #cbd5e1;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0097a7;
+    }
+
+    .alert-box {
+      display: none;
+      background-color: rgba(255, 0, 0, 0.1);
+      color: #ff4c4c;
+      padding: 15px;
+      margin-top: 20px;
+      border: 1px solid red;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .stats-container {
+      border-left: 2px solid #334155;
+      padding-left: 30px;
+    }
+
+    .stats-container h3 {
+      margin-bottom: 15px;
+      color: #00e5ff;
+    }
+
+    .stat-line {
+      font-size: 14px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      border-left: 4px solid #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="login-container">
+      <h2>Admin Login</h2>
+      <form onsubmit="fakeLogin(); return false;">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <input type="submit" value="Login">
+      </form>
+      <div class="alert-box" id="alert">Access Denied: Unauthorized Attempt Detected</div>
+    </div>
+
+    <div class="stats-container">
+      <h3>Server Stats</h3>
+      <div class="stat-line">• Active Sessions: <strong>23</strong></div>
+      <div class="stat-line">• Firewall Status: <strong style="color:lime">Online</strong></div>
+      <div class="stat-line">• Blocked Intrusions: <strong>17</strong></div>
+      <div class="stat-line">• CPU Load: <strong>14%</strong></div>
+      <div class="stat-line">• Disk Usage: <strong>68%</strong></div>
+      <div class="stat-line">• Last Login IP: <strong>192.168.88.34</strong></div>
+    </div>
+  </div>
+
+  <script>
+    function fakeLogin() {
+      document.body.classList.add("flash");
+      const alertBox = document.getElementById("alert");
+      alertBox.style.display = "block";
+      setTimeout(() => {
+        document.body.classList.remove("flash");
+        alertBox.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
