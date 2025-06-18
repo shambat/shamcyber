@@ -1,0 +1,18 @@
+# 🔒 Cloud Root API Credentials — DO NOT SHARE
+
+AWS_ACCESS_KEY_ID = AKIAFAKEKEYFORYOURSCAN
+AWS_SECRET_ACCESS_KEY = wJalrXUtnFEMI/K7MDENG/bPxRfiCYFAKEKEY
+
+project_id = ehtisham-space-secure
+admin_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCFAKE.JWT.TOKEN
+
+---
+
+Nice try 👀 but this is not real data.
+
+This file is intentionally placed here as a honeypot for those running dirsearch, gobuster, or automated scanners.
+
+If you found this ethically — good recon!
+
+Stay curious, stay legal.
+— Muhammad Ehtisham | ehtisham.space
