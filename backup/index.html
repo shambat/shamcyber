@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SHAM File Manager</title>
+  <meta charset="UTF-8">
+  <title>SHAM File Viewer</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #121212;
-      color: #eee;
+      color: #e0e0e0;
       padding: 2rem;
     }
 
@@ -20,34 +20,35 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 2rem;
-      background-color: #1e1e1e;
+      background: #1e1e1e;
       border-radius: 8px;
       overflow: hidden;
     }
 
     th, td {
       padding: 1rem;
-      border-bottom: 1px solid #333;
       text-align: left;
+      border-bottom: 1px solid #333;
     }
 
     th {
       background-color: #263238;
+      color: #ffffff;
     }
 
     tr:hover {
-      background-color: #2a2a2a;
+      background-color: #2c2c2c;
     }
 
     .btn {
-      padding: 0.5rem 1rem;
-      margin-right: 0.5rem;
       background-color: #00bcd4;
-      color: white;
+      color: #fff;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
       font-size: 0.9rem;
+      transition: background-color 0.2s ease-in-out;
     }
 
     .btn:hover {
@@ -57,7 +58,7 @@
 </head>
 <body>
 
-  <h1>📂 SHAM File Manager</h1>
+  <h1>📂 SHAM File Viewer</h1>
 
   <table>
     <thead>
@@ -65,7 +66,7 @@
         <th>File Name</th>
         <th>Last Commit Message</th>
         <th>Last Commit Date</th>
-        <th>Actions</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -73,41 +74,31 @@
         <td>config.old</td>
         <td>Add files via upload</td>
         <td>Last week</td>
-        <td>
-          <a href="config.old" class="btn" download>Download</a>
-        </td>
+        <td><a href="config.old" class="btn" target="_blank">View</a></td>
       </tr>
       <tr>
         <td>db_backup.sql</td>
         <td>Add files via upload</td>
         <td>Last week</td>
-        <td>
-          <a href="db_backup.sql" class="btn" download>Download</a>
-        </td>
+        <td><a href="db_backup.sql" class="btn" target="_blank">View</a></td>
       </tr>
       <tr>
         <td>dev_notes.txt</td>
         <td>Add files via upload</td>
         <td>Last week</td>
-        <td>
-          <a href="dev_notes.txt" class="btn" download>Download</a>
-        </td>
+        <td><a href="dev_notes.txt" class="btn" target="_blank">View</a></td>
       </tr>
       <tr>
         <td>keys.txt</td>
         <td>Create keys.txt</td>
         <td>Last week</td>
-        <td>
-          <a href="keys.txt" class="btn" download>Download</a>
-        </td>
+        <td><a href="keys.txt" class="btn" target="_blank">View</a></td>
       </tr>
       <tr>
         <td>users.csv</td>
         <td>Add files via upload</td>
         <td>Last week</td>
-        <td>
-          <a href="users.csv" class="btn" download>Download</a>
-        </td>
+        <td><a href="users.csv" class="btn" target="_blank">View</a></td>
       </tr>
     </tbody>
   </table>
