@@ -2,142 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SHAM File Manager</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #121212;
-      color: #e0e0e0;
-      margin: 0;
+      color: #eee;
       padding: 2rem;
     }
 
     h1 {
       text-align: center;
-      color: #29b6f6;
+      color: #00bcd4;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 2rem;
-      background: #1e1e1e;
+      background-color: #1e1e1e;
       border-radius: 8px;
       overflow: hidden;
     }
 
     th, td {
       padding: 1rem;
-      text-align: left;
       border-bottom: 1px solid #333;
+      text-align: left;
     }
 
     th {
       background-color: #263238;
-      color: #ffffff;
     }
 
     tr:hover {
-      background-color: #2c2c2c;
+      background-color: #2a2a2a;
     }
 
-    button {
-      background-color: #29b6f6;
-      color: white;
-      border: none;
+    .btn {
       padding: 0.5rem 1rem;
       margin-right: 0.5rem;
-      border-radius: 4px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.2s;
+      font-size: 0.9rem;
     }
 
-    button:hover {
-      background-color: #0288d1;
-    }
-
-    @media screen and (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      th {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-
-      tr {
-        margin-bottom: 1rem;
-      }
-
-      td {
-        border: none;
-        padding: 0.5rem;
-        position: relative;
-        padding-left: 50%;
-      }
-
-      td::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 0.5rem;
-        font-weight: bold;
-        color: #90caf9;
-      }
-
-      td:nth-of-type(1)::before { content: "Name"; }
-      td:nth-of-type(2)::before { content: "Last Commit Message"; }
-      td:nth-of-type(3)::before { content: "Last Commit Date"; }
-      td:nth-of-type(4)::before { content: "Actions"; }
+    .btn:hover {
+      background-color: #008ba3;
     }
   </style>
 </head>
 <body>
 
-  <h1>📁 SHAM File Management System</h1>
+  <h1>📂 SHAM File Manager</h1>
 
   <table>
     <thead>
       <tr>
-        <th>Name</th>
+        <th>File Name</th>
         <th>Last Commit Message</th>
         <th>Last Commit Date</th>
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody id="file-table">
-      <!-- Files will be inserted here by JS -->
+    <tbody>
+      <tr>
+        <td>config.old</td>
+        <td>Add files via upload</td>
+        <td>Last week</td>
+        <td>
+          <a href="config.old" class="btn" download>Download</a>
+        </td>
+      </tr>
+      <tr>
+        <td>db_backup.sql</td>
+        <td>Add files via upload</td>
+        <td>Last week</td>
+        <td>
+          <a href="db_backup.sql" class="btn" download>Download</a>
+        </td>
+      </tr>
+      <tr>
+        <td>dev_notes.txt</td>
+        <td>Add files via upload</td>
+        <td>Last week</td>
+        <td>
+          <a href="dev_notes.txt" class="btn" download>Download</a>
+        </td>
+      </tr>
+      <tr>
+        <td>keys.txt</td>
+        <td>Create keys.txt</td>
+        <td>Last week</td>
+        <td>
+          <a href="keys.txt" class="btn" download>Download</a>
+        </td>
+      </tr>
+      <tr>
+        <td>users.csv</td>
+        <td>Add files via upload</td>
+        <td>Last week</td>
+        <td>
+          <a href="users.csv" class="btn" download>Download</a>
+        </td>
+      </tr>
     </tbody>
   </table>
 
-  <script>
-    const files = [
-      { name: 'config.old', message: 'Add files via upload', date: 'last week' },
-      { name: 'db_backup.sql', message: 'Add files via upload', date: 'last week' },
-      { name: 'dev_notes.txt', message: 'Add files via upload', date: 'last week' },
-      { name: 'keys.txt', message: 'Create keys.txt', date: 'last week' },
-      { name: 'users.csv', message: 'Add files via upload', date: 'last week' },
-    ];
-
-    const fileTable = document.getElementById('file-table');
-
-    files.forEach(file => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${file.name}</td>
-        <td>${file.message}</td>
-        <td>${file.date}</td>
-        <td>
-          <button onclick="alert('Viewing ${file.name}')">View</button>
-          <button onclick="alert('Downloading ${file.name}')">Download</button>
-          <button onclick="alert('Deleting ${file.name}')">Delete</button>
-        </td>
-      `;
-      fileTable.appendChild(row);
-    });
-  </script>
 </body>
 </html>
