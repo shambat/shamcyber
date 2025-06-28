@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +30,15 @@
       50% { background: linear-gradient(135deg, #8b0000 0%, #4b0000 100%); }
     }
 
+    .flash-success {
+      animation: flashSuccess 0.4s ease-in-out 6;
+    }
+
+    @keyframes flashSuccess {
+      0%, 100% { background: linear-gradient(135deg, #0f111a 0%, #1a202c 100%); }
+      50% { background: linear-gradient(135deg, #008b00 0%, #004b00 100%); }
+    }
+
     .container {
       display: flex;
       flex-direction: row;
@@ -43,11 +51,12 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       max-width: 800px;
       position: relative;
+      animation: fadeIn 0.8s ease-out;
     }
 
-    .login-container {
-      width: 320px;
-      animation: fadeIn 0.8s ease-out;
+    .container.success {
+      flex-direction: column;
+      align-items: center;
     }
 
     @keyframes fadeIn {
@@ -162,6 +171,40 @@
       color: #00d4ff;
     }
 
+    .success-message {
+      text-align: center;
+      font-size: 18px;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .flag-container {
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 20px;
+      color: #00d4ff;
+      font-weight: 600;
+      border: 2px solid #00d4ff;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+    }
+
+    .reward-message {
+      text-align: center;
+      font-size: 16px;
+      color: #94a3b8;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
     .branding {
       text-align: center;
       margin-top: 20px;
@@ -180,13 +223,18 @@
       font-size: 11px;
       opacity: 0.8;
     }
+
+    .login-container {
+      width: 320px;
+      animation: fadeIn 0.8s ease-out;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="login-container">
+  <div class="container" id="container">
+    <div class="login-container" id="login-container">
       <h2>Admin Login</h2>
-      <form onsubmit="fakeLogin(); return false;">
+      <form onsubmit="handleLogin(); return false;">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="username" required />
@@ -201,7 +249,7 @@
       <div class="branding">Security by SHAM</div>
     </div>
 
-    <div class="stats-container">
+    <div class="stats-container" id="stats-container">
       <h3>Server Stats</h3>
       <div class="stat-line">• Active Sessions: <strong id="active-sessions">23</strong></div>
       <div class="stat-line">• Firewall Status: <strong id="firewall-status" style="color:lime">Online</strong></div>
@@ -215,18 +263,51 @@
 
   <script>
     const siren = new Audio('play.mp3');
+    const successSound = new Audio('success.mp3'); // Placeholder for success sound
+    const VALID_USERNAME = 'sham';
+    const VALID_PASSWORD_64 = 'Y3liZXI3aXNiZXN0'; // Pizza base
+    const ENCRYPTED_FLAG = 'c2hhbXtjeWJlcji3X3dlbGxfZG9uZV95b3VfcHduZWRfdGhlX1NIQU1fc3lzdGVtfQ=='; 
 
-    function fakeLogin() {
-      siren.play().catch(error => console.error('Error playing siren:', error));
-      document.body.classList.add('flash');
+    function handleLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
       const alertBox = document.getElementById('alert');
-      alertBox.style.display = 'block';
-      setTimeout(() => {
-        document.body.classList.remove('flash');
-        alertBox.style.display = 'none';
-        siren.pause();
-        siren.currentTime = 0;
-      }, 4000);
+      const container = document.getElementById('container');
+      const loginContainer = document.getElementById('login-container');
+      const statsContainer = document.getElementById('stats-container');
+
+     
+      const encodedPassword = btoa(password);
+
+      if (username === VALID_USERNAME && encodedPassword === VALID_PASSWORD_64) {
+        // Success: Replace login form with success page
+        container.classList.add('success');
+        loginContainer.style.display = 'none';
+        statsContainer.style.display = 'none';
+        container.innerHTML = `
+          <h2>CTF Success!</h2>
+          <div class="success-message">Congratulations! You've Hacked the SHAM system!</div>
+          <div class="flag-container">Flag: ${atob(ENCRYPTED_FLAG)}</div>
+          <div class="reward-message">Please share the flag with Ehtisham to redeem your reward: Pizza!</div>
+          <div class="branding-footer">Protected by SHAM Security Solutions</div>
+        `;
+        document.body.classList.add('flash-success');
+        successSound.play().catch(error => console.error('Error playing success sound:', error));
+        setTimeout(() => {
+          document.body.classList.remove('flash-success');
+        }, 4000);
+      } else {
+        // Failure: Show alert and play siren
+        siren.play().catch(error => console.error('Error playing siren:', error));
+        document.body.classList.add('flash');
+        alertBox.style.display = 'block';
+        setTimeout(() => {
+          document.body.classList.remove('flash');
+          alertBox.style.display = 'none';
+          siren.pause();
+          siren.currentTime = 0;
+        }, 4000);
+      }
     }
 
     function updateStats() {
