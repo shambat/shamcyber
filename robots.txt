@@ -1,2 +1,21 @@
+# robots.txt for ehtisham.space
+# Bots, you are advised to stay away... 😉
 User-agent: *
-Allow: /
+
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /login/
+Disallow: /~a/
+Disallow: /doc/
+Disallow: /404/
+Disallow: /shambat/
+Disallow: /2/
+Disallow: /3/
+Disallow: /1/
+Disallow: /admin-credentials.txt
+Disallow: /credentials.txt
+Disallow: /env-backup.txt
+Disallow: /CNAM
+Disallow: /.htaccess
+
+# But hey, some of you won't listen... will you?
