@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 | Page Not Found - ehtisham.space</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #0f1115;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 6rem;
+            color: #ff4b5c;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #ccc;
+        }
+
+        a {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #1e90ff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0d6efd;
+        }
+
+        .glitch {
+            font-size: 3rem;
+            color: #0ff;
+            text-shadow: 1px 1px red, -1px -1px blue;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            20% { text-shadow: -2px 0 red, 2px 0 blue; }
+            40% { text-shadow: 2px 2px red, -2px -2px blue; }
+            60% { text-shadow: -2px -2px red, 2px 2px blue; }
+            80% { text-shadow: 2px -2px red, -2px 2px blue; }
+            100% { text-shadow: 1px 1px red, -1px -1px blue; }
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <div class="glitch">Page Not Found</div>
+    <p>Oops! Looks like you've wandered off the secure path.</p>
+    <a href="https://ehtisham.space">Return to Home</a>
+
+    <script>
+        // Optional: Log the error to your console or backend
+        console.log("🔍 404 Error: Page not found at", window.location.href);
+    </script>
+</body>
+</html>
