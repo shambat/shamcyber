@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Access - 403 Forbidden</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: slideIn 1s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInText 2s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .login-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
+        }
+
+        #error-message {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #error-message.show {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1rem; }
+            .login-btn { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>403 - Forbidden</h1>
+        <p>Administrator access only. Please login to proceed!</p>
+        <button class="login-btn">Login</button>
+        <div id="error-message"></div>
+    </div>
+    <script>
+        // Add dynamic text effect for initial message
+        const message = document.querySelector('p');
+        const originalText = message.textContent;
+        let index = 0;
+
+        function typeWriter() {
+            if (index < originalText.length) {
+                message.textContent = originalText.substring(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Start typewriter effect after a delay
+        setTimeout(() => {
+            message.textContent = '';
+            typeWriter();
+        }, 1500);
+
+        // Show error message on button click
+        const loginBtn = document.querySelector('.login-btn');
+        const errorMessage = document.querySelector('#error-message');
+
+        loginBtn.addEventListener('click', () => {
+            errorMessage.textContent = 'Do efforts to find login';
+            errorMessage.classList.add('show');
+        });
+    </script>
+</body>
+</html>
