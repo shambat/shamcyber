@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secret Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Body background with dark gradient */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #00ffcc;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        .animated-subtext {
+            font-size: 1.2rem;
+            color: #ccc;
+            animation: slidein 10s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            max-width: 90%;
+        }
+
+        @keyframes slidein {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .page-id {
+            font-size: 0.9rem;
+            margin-top: 40px;
+            color: #888;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .animated-subtext {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ahh hackers you are close...</h1>
+    <div class="animated-subtext">Do this in automated way and you will win.</div>
+    <div class="page-id" id="pageName"></div>
+
+    <script>
+        // Extract page name from URL
+        const pathname = window.location.pathname;
+        document.getElementById("pageName").textContent = `Page: ${pathname}`;
+    </script>
+</body>
+</html>
