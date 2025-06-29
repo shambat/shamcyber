@@ -263,10 +263,27 @@
 
   <script>
     const siren = new Audio('play.mp3');
-    const successSound = new Audio('success.mp3'); // Placeholder for success sound
+    const successSound = new Audio('success.mp3');
     const VALID_USERNAME = 'sham';
     const VALID_PASSWORD_64 = 'Y3liZXI3aXNiZXN0'; // Pizza base
-    const ENCRYPTED_FLAG = ''; 
+
+    function initSystem() {
+      const config = {
+        serverId: 'srv_' + Math.random().toString(36).substr(2, 9),
+        uptime: Math.floor(Math.random() * 1000) + 'ms',
+        security: {
+          protocol: 'Certiffied Secure Hyper ',
+          q9z3k7m: 'c2hhbXtjeWJlcjhfdy1lbGxfZG9uZV95b3VfcHduZWRfdGhlX1NIQU1fc3lzdGVtfQ==',
+          lastUpdated: new Date().toISOString(),
+        },
+        decoy: {
+          hash: btoa('decoy_data_' + Math.random()),
+          status: 'active',
+          ports: [80, 443, 8080]
+        }
+      };
+      return config;
+    }
 
     function handleLogin() {
       const username = document.getElementById('username').value;
@@ -276,18 +293,18 @@
       const loginContainer = document.getElementById('login-container');
       const statsContainer = document.getElementById('stats-container');
 
-     
       const encodedPassword = btoa(password);
 
       if (username === VALID_USERNAME && encodedPassword === VALID_PASSWORD_64) {
-        // Success: Replace login form with success page
+        const config = initSystem();
+        const flag = config.security.q9z3k7m;
         container.classList.add('success');
         loginContainer.style.display = 'none';
         statsContainer.style.display = 'none';
         container.innerHTML = `
           <h2>CTF Success!</h2>
           <div class="success-message">Congratulations! You've Hacked the SHAM system!</div>
-          <div class="flag-container">Flag: ${atob(ENCRYPTED_FLAG)}</div>
+          <div class="flag-container">Flag: ${atob(flag)}</div>
           <div class="reward-message">Please share the flag with Ehtisham to redeem your reward: Pizza!</div>
           <div class="branding-footer">Protected by SHAM Security Solutions</div>
         `;
@@ -297,7 +314,6 @@
           document.body.classList.remove('flash-success');
         }, 4000);
       } else {
-        // Failure: Show alert and play siren
         siren.play().catch(error => console.error('Error playing siren:', error));
         document.body.classList.add('flash');
         alertBox.style.display = 'block';
