@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShamBoard | Under Dev</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    font-family: 'Courier New', monospace;
+    background: #0b0c10;
+    color: #c5c6c7;
+    overflow-x: hidden;
+  }
+  /* Neon background animation */
+  .bg-neon {
+    background: linear-gradient(270deg, #0b0c10, #1f2833, #0b0c10);
+    background-size: 600% 600%;
+    animation: neonBG 15s ease infinite;
+  }
+  @keyframes neonBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  /* Flicker effect */
+  .flicker {
+    animation: flickerText 2s infinite;
+  }
+  @keyframes flickerText {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  /* Typing effect */
+  .typing {
+    border-right: 2px solid #66fcf1;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(30) forwards, blink 0.7s infinite;
+  }
+  @keyframes typing { to { width: 100%; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+</style>
+</head>
+<body class="bg-neon flex flex-col items-center justify-center min-h-screen p-6">
+
+<!-- Header -->
+<header class="text-center mb-12">
+  <h1 class="text-6xl font-bold text-cyan-400 flicker mb-2">ShamBoard</h1>
+  <p class="text-gray-300 italic flicker">⚡ Under Development - Hacker vibes hobby project ⚡</p>
+</header>
+
+<!-- Message Card -->
+<main class="bg-gray-900/70 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-cyan-500 w-full max-w-lg text-center">
+  <p class="text-green-400 mb-4 typing">💻 Currently coding a public message board where anyone can post in real-time… stay tuned!</p>
+
+  <!-- Fake console animation -->
+  <div class="bg-black text-green-400 font-mono text-left p-4 rounded-lg h-40 overflow-y-auto mb-4 shadow-inner">
+    <p class="animate-pulse">Connecting to server…</p>
+    <p class="animate-pulse delay-200">Loading board features…</p>
+    <p class="animate-pulse delay-400">Initializing fun…</p>
+  </div>
+
+  <button class="mt-4 px-6 py-3 bg-purple-500 hover:bg-pink-500 text-white font-bold rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+    Join the Chaos!
+  </button>
+</main>
+
+<!-- Footer -->
+<footer class="mt-12 text-gray-500 text-sm text-center">
+  Muhammad Ehtisham | <a href="https://ehtisham.space" class="text-cyan-400 hover:underline">ehtisham.space</a>
+</footer>
+
+</body>
+</html>
