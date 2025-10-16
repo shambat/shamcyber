@@ -35,7 +35,6 @@
     };
   </script>
   <style>
-    /* Stagger the fade-in timing for each card */
     .card:nth-child(1) { animation-delay: 0.2s; }
     .card:nth-child(2) { animation-delay: 0.5s; }
     .card:nth-child(3) { animation-delay: 0.8s; }
@@ -67,37 +66,37 @@
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Blog 1 -->
-        <div class="card bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition transform hover:-translate-y-1 animate-fadeInUp hover:animate-none">
+        <a href="/blog/b1/" class="card block bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition transform hover:-translate-y-1 animate-fadeInUp hover:animate-none">
           <div class="animate-float">
-            <h3 class="text-xl font-semibold mb-3">Diving into the Wild Web</h3>
+            <h3 class="text-xl font-semibold mb-3 text-white">Diving into the Wild Web</h3>
             <p class="text-gray-400 text-sm mb-4">
               Exploring the hidden corners of the internet through Shodan and discovering lessons about exposure and awareness.
             </p>
-            <a href="/blog/b1/" class="text-primary hover:underline font-medium">Read More →</a>
+            <span class="text-primary font-medium">Read More →</span>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 2 -->
-        <div class="card bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition transform hover:-translate-y-1 animate-fadeInUp hover:animate-none">
+        <a href="/blog/b2/" class="card block bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition transform hover:-translate-y-1 animate-fadeInUp hover:animate-none">
           <div class="animate-float">
-            <h3 class="text-xl font-semibold mb-3">Breaking Out of the Ratta System</h3>
+            <h3 class="text-xl font-semibold mb-3 text-white">Breaking Out of the Ratta System</h3>
             <p class="text-gray-400 text-sm mb-4">
               How I learned cybersecurity beyond rote memorization — through hands-on labs, curiosity, and self-driven exploration.
             </p>
-            <a href="/blog/b2/" class="text-primary hover:underline font-medium">Read More →</a>
+            <span class="text-primary font-medium">Read More →</span>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 3 -->
-        <div class="card bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition transform hover:-translate-y-1 animate-fadeInUp hover:animate-none">
+        <a href="/blog/b3/" class="card block bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition transform hover:-translate-y-1 animate-fadeInUp hover:animate-none">
           <div class="animate-float">
-            <h3 class="text-xl font-semibold mb-3">Inside the SOC</h3>
+            <h3 class="text-xl font-semibold mb-3 text-white">Inside the SOC</h3>
             <p class="text-gray-400 text-sm mb-4">
               Experiencing the SOC environment — understanding workflows, analyzing incidents, and developing the mindset of a defender.
             </p>
-            <a href="/blog/b3/" class="text-primary hover:underline font-medium">Read More →</a>
+            <span class="text-primary font-medium">Read More →</span>
           </div>
-        </div>
+        </a>
       </div>
 
       <p class="text-gray-400 mt-12 text-sm">More blogs coming soon...</p>
