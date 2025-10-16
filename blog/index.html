@@ -40,16 +40,16 @@
         EHTISHAM<span class="text-primary">.SPACE</span>
       </div>
       <nav class="space-x-6">
-        <a href="../index.html" class="hover:text-primary transition">Home</a>
+        <a class='hover:text-primary transition' href='/'>Home</a>
         <a href="../projects.html" class="hover:text-primary transition">Projects</a>
         <a href="../contact.html" class="hover:text-primary transition">Contact</a>
-        <a href="index.html" class="text-primary font-semibold">Blogs</a>
+        <a class='text-primary font-semibold' href='/blog/'>Blogs</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-dark via-slate-800 to-gray-900 text-center py-28 px-4">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-dark via-slate-800 to-gray-900 text-center py-20 px-4">
     <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-pulseGlow">
       Cybersecurity Blogs
     </h1>
@@ -58,26 +58,84 @@
     </p>
   </section>
 
-  <!-- Under Development Section -->
-  <main class="flex flex-col items-center justify-center py-24 px-6 text-center">
-    <div class="relative">
-      <div class="absolute inset-0 blur-2xl bg-primary opacity-30 animate-ping"></div>
-      <div class="relative z-10">
-        <h2 class="text-3xl font-semibold mb-4">🚧 Under Development</h2>
-        <p class="text-gray-300 max-w-md mx-auto mb-8">
-          I’ll be posting my cybersecurity blogs, research insights, and university experiences here soon.<br/>
-          Stay tuned for updates!
-        </p>
-        <div class="mt-6">
-          <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
-        </div>
-      </div>
+  <!-- Main Container -->
+  <main id="blogList" class="max-w-5xl mx-auto py-16 px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Blog Cards -->
+    <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+      <h2 class="text-xl font-semibold mb-2 text-primary">🕵️‍♂️ Diving into the Wild Web</h2>
+      <p class="text-gray-300 text-sm mb-4">Exploring Shodan, open ports, and the secrets that lie exposed across the internet...</p>
+      <button onclick="showBlog('wildweb')" class="text-primary border border-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition">Read More</button>
+    </div>
+
+    <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+      <h2 class="text-xl font-semibold mb-2 text-primary">🎓 Breaking Out of the Ratta System</h2>
+      <p class="text-gray-300 text-sm mb-4">How I broke free from rote learning to pursue real-world cybersecurity skills...</p>
+      <button onclick="showBlog('ratta')" class="text-primary border border-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition">Read More</button>
+    </div>
+
+    <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+      <h2 class="text-xl font-semibold mb-2 text-primary">🧠 From Intern to Threat Hunter</h2>
+      <p class="text-gray-300 text-sm mb-4">My journey into the world of SOC operations, incident response, and proactive threat hunting...</p>
+      <button onclick="showBlog('soc')" class="text-primary border border-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition">Read More</button>
     </div>
   </main>
+
+  <section class="text-center text-gray-400 pb-24">
+    <p>📝 More blogs coming soon... Stay tuned!</p>
+  </section>
+
+  <!-- Blog Content -->
+  <section id="blogContent" class="max-w-4xl mx-auto py-16 px-6 hidden">
+    <div id="blogInner" class="prose prose-invert max-w-none"></div>
+    <div class="text-center mt-10">
+      <button onclick="backToList()" class="bg-primary text-dark font-semibold px-6 py-2 rounded hover:bg-light hover:text-dark transition">
+        ← Back to Blogs
+      </button>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-dark text-gray-400 py-6 text-center border-t border-gray-800">
     <p>© 2025 Muhammad Ehtisham | Cybersecurity Student & SOC Analyst</p>
   </footer>
+
+  <script>
+    const blogs = {
+      wildweb: `
+        <h2 class="text-3xl font-bold mb-4 text-primary">🕵️‍♂️ Diving into the Wild Web: Shodan, Open Ports, and Secrets Left Exposed</h2>
+        <p>It all started one restless night with nothing but curiosity and a Kali Linux VM. I had heard about Shodan, the search engine that lets you peek into every device exposed to the internet. I asked myself: “What’s really out there, waiting to be discovered?”</p>
+        <p>At first, it was frustrating. Most of the systems I tried to reach were offline, unresponsive, or just dead. Roughly 80% of my initial searches yielded nothing. But giving up wasn’t an option...</p>
+        <p>I began refining my searches — filtering by open ports, software banners, and geographic location. Slowly, the veil lifted, and I started seeing the real playground...</p>
+        <p>By the end of the night, I had a notebook full of findings, screenshots, and notes about system behavior. More importantly, I had learned how curiosity, persistence, and methodical exploration are just as crucial as any tool in a cybersecurity toolkit.</p>
+      `,
+      ratta: `
+        <h2 class="text-3xl font-bold mb-4 text-primary">🎓 Breaking Out of the Ratta System: Learning Cybersecurity on My Own Terms</h2>
+        <p>University life in Pakistan can be a strange paradox for cybersecurity students. At Air University, the system is designed to reward memorization and punctuality...</p>
+        <p>I found myself constantly at a crossroads — between grades and growth, between rote learning and real experimentation...</p>
+        <p>Late nights became my classroom. I built networks, broke configurations, and learned from every failure. The more I explored, the more I realized that cybersecurity cannot be learned through memorization alone.</p>
+        <p>Grades matter in transcripts, but skills matter in the field. That became my mantra.</p>
+      `,
+      soc: `
+        <h2 class="text-3xl font-bold mb-4 text-primary">🧠 From Intern to Threat Hunter: Living the SOC Life</h2>
+        <p>The first time I logged into a live SOC dashboard, it felt like stepping into the nerve center of a cyber battlefield. Alerts were popping up everywhere...</p>
+        <p>Working as a SOC Analyst & Threat Hunting Intern taught me that cybersecurity is as much detective work as it is technical skill.</p>
+        <p>Proactive threat hunting became my favorite challenge. Using frameworks like MITRE ATT&CK, I mapped attacker techniques, studied exploitation paths, and validated Indicators of Compromise.</p>
+        <p>By the end of my internship, curiosity had turned into capability — the ability to think like an attacker, respond like a defender, and stay one step ahead.</p>
+      `
+    };
+
+    function showBlog(id) {
+      document.getElementById("blogList").classList.add("hidden");
+      document.getElementById("blogContent").classList.remove("hidden");
+      document.getElementById("blogInner").innerHTML = blogs[id];
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function backToList() {
+      document.getElementById("blogContent").classList.add("hidden");
+      document.getElementById("blogList").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
