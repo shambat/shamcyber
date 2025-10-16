@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diving into the Wild Web | Ehtisham.Space</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#00aaff', dark: '#0a0a23', light: '#f5f6fa' },
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          keyframes: {
+            pulseGlow: {
+              '0%,100%': { opacity: 1, textShadow: '0 0 20px #00aaff' },
+              '50%': { opacity: 0.6, textShadow: '0 0 5px #00aaff' },
+            },
+          },
+          animation: { pulseGlow: 'pulseGlow 2s infinite' },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-dark text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-dark text-white py-4 sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
+      <a href="/blog/" class="text-2xl font-bold tracking-wide hover:text-primary transition">
+        EHTISHAM<span class="text-primary">.SPACE</span>
+      </a>
+      <a href="/blog/" class="text-sm text-gray-400 hover:text-primary transition">← Back to Blogs</a>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <main class="max-w-4xl mx-auto py-16 px-6 leading-relaxed text-gray-300">
+    <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6">🕵️‍♂️ Diving into the Wild Web: Shodan, Open Ports, and Secrets Left Exposed</h1>
+
+    <p>It all started one restless night with nothing but curiosity and a Kali Linux VM. I had heard about Shodan, the search engine that lets you peek into every device exposed to the internet. I asked myself: “What’s really out there, waiting to be discovered?”</p>
+
+    <p class="mt-4">At first, it was frustrating. Most of the systems I tried to reach were offline, unresponsive, or just dead. Roughly 80% of my initial searches yielded nothing. It felt like chasing ghosts in a digital graveyard. But giving up wasn’t an option. I began refining my searches — filtering by open ports, software banners, and geographic location. Slowly, the veil lifted, and I started seeing the real playground.</p>
+
+    <p class="mt-4">There they were: SSH servers left with default passwords, FTP directories exposing sensitive files, outdated web panels that hadn’t been patched in years. Some had configuration files sitting open, credentials still in plain text, logs revealing users’ activity. Every discovery sent an adrenaline rush through me. This was real-world hacking — not in a lab, not simulated — the kind where mistakes and oversights by others could be exploited in a professional pentest.</p>
+
+    <p class="mt-4">I dove deeper, documenting each vulnerable host, each exposed port, and every weak service. I learned quickly that VAPT isn’t about exploitation alone. It’s about observation, patience, and understanding the attack surface. Each misconfiguration I discovered taught me the patterns attackers look for, and how small errors — outdated firmware, default credentials, unprotected directories — could compromise entire systems.</p>
+
+    <p class="mt-4">By the end of the night, I had a notebook full of findings, screenshots, and notes about system behavior. More importantly, I had learned how curiosity, persistence, and methodical exploration are just as crucial as any tool in a cybersecurity toolkit. It was addictive, thrilling, and humbling all at once — a reminder that the real internet is messy, dynamic, and full of lessons waiting for anyone bold enough to look.</p>
+
+    <div class="mt-10">
+      <a href="/blog/" class="border border-primary text-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition">← Back to Blogs</a>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-gray-400 py-6 text-center border-t border-gray-800">
+    <p>© 2025 Muhammad Ehtisham | Cybersecurity Student & SOC Analyst</p>
+  </footer>
+
+</body>
+</html>
