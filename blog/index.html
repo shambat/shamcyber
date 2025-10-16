@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ehtisham’s Cybersecurity Blog</title>
+  <title>Cybersecurity Chronicles | Ehtisham.Space</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,12 +17,22 @@
           fontFamily: {
             sans: ['Poppins', 'sans-serif'],
           },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { opacity: 1, textShadow: '0 0 20px #00aaff' },
+              '50%': { opacity: 0.6, textShadow: '0 0 5px #00aaff' },
+            },
+          },
+          animation: {
+            pulseGlow: 'pulseGlow 2s infinite',
+          },
         },
       },
     };
   </script>
 </head>
-<body class="bg-light text-dark font-sans">
+
+<body class="bg-dark text-white font-sans">
   <!-- Navbar -->
   <header class="bg-dark text-white py-4 sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
@@ -33,75 +43,41 @@
         <a href="../index.html" class="hover:text-primary transition">Home</a>
         <a href="../projects.html" class="hover:text-primary transition">Projects</a>
         <a href="../contact.html" class="hover:text-primary transition">Contact</a>
-        <a href="index.html" class="text-primary font-semibold">Blog</a>
+        <a href="index.html" class="text-primary font-semibold">Chronicles</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-dark via-slate-800 to-gray-900 text-white text-center py-20 px-4">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Cybersecurity Chronicles</h1>
-    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Documenting my learning, research, and experiences in the evolving world of cyber defense.
+  <section class="bg-gradient-to-br from-dark via-slate-800 to-gray-900 text-center py-28 px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-pulseGlow">
+      Cybersecurity Chronicles
+    </h1>
+    <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+      My digital journal of experiences, research, and lessons learned in the world of cybersecurity.
     </p>
   </section>
 
-  <!-- Blog Section -->
-  <main class="max-w-6xl mx-auto py-12 px-4" id="blogContainer">
-    <h2 class="text-3xl font-semibold mb-8 text-center text-dark">Latest Posts</h2>
-
-    <div id="posts" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Posts will load here dynamically -->
+  <!-- Under Development Section -->
+  <main class="flex flex-col items-center justify-center py-24 px-6 text-center">
+    <div class="relative">
+      <div class="absolute inset-0 blur-2xl bg-primary opacity-30 animate-ping"></div>
+      <div class="relative z-10">
+        <h2 class="text-3xl font-semibold mb-4">🚧 Under Development</h2>
+        <p class="text-gray-300 max-w-md mx-auto mb-8">
+          I’ll be posting my cybersecurity blogs, research insights, and university experiences here soon.<br/>
+          Stay tuned for updates!
+        </p>
+        <div class="mt-6">
+          <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
+        </div>
+      </div>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-gray-400 py-6 text-center">
+  <footer class="bg-dark text-gray-400 py-6 text-center border-t border-gray-800">
     <p>© 2025 Muhammad Ehtisham | Cybersecurity Student & SOC Analyst</p>
   </footer>
-
-  <!-- Blog Script -->
-  <script>
-    const posts = [
-      {
-        title: "My Journey into Cybersecurity",
-        desc: "How my curiosity for digital defense led me into the world of ethical hacking and SOC analysis.",
-        img: "https://source.unsplash.com/featured/?cybersecurity,computer",
-        date: "October 2025"
-      },
-      {
-        title: "Deploying Wazuh SIEM on VMware",
-        desc: "Step-by-step setup and lessons learned from building my home lab using Wazuh and pfSense.",
-        img: "https://source.unsplash.com/featured/?server,vmware",
-        date: "September 2025"
-      },
-      {
-        title: "Blue Teaming for Beginners",
-        desc: "A practical approach to start analyzing network logs and defending systems using open-source tools.",
-        img: "https://source.unsplash.com/featured/?network,defense",
-        date: "August 2025"
-      }
-    ];
-
-    const container = document.getElementById("posts");
-
-    posts.forEach(post => {
-      const card = document.createElement("div");
-      card.className =
-        "bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 duration-300";
-      card.innerHTML = `
-        <img src="${post.img}" alt="${post.title}" class="w-full h-48 object-cover">
-        <div class="p-5">
-          <p class="text-sm text-gray-500 mb-2">${post.date}</p>
-          <h3 class="text-xl font-semibold mb-2 text-dark">${post.title}</h3>
-          <p class="text-gray-600 mb-4">${post.desc}</p>
-          <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-sky-600 transition">
-            Read More →
-          </button>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  </script>
 </body>
 </html>
