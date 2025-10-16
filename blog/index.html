@@ -58,7 +58,7 @@
     </p>
   </section>
 
-  <!-- Main Container -->
+  <!-- Blog List -->
   <main id="blogList" class="max-w-5xl mx-auto py-16 px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Blog Cards -->
     <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
@@ -84,9 +84,9 @@
     <p>📝 More blogs coming soon... Stay tuned!</p>
   </section>
 
-  <!-- Blog Content -->
-  <section id="blogContent" class="max-w-4xl mx-auto py-16 px-6 hidden">
-    <div id="blogInner" class="prose prose-invert max-w-none"></div>
+  <!-- Blog Full Content -->
+  <section id="blogContent" class="max-w-4xl mx-auto py-16 px-6 hidden leading-relaxed text-gray-200 space-y-4">
+    <div id="blogInner"></div>
     <div class="text-center mt-10">
       <button onclick="backToList()" class="bg-primary text-dark font-semibold px-6 py-2 rounded hover:bg-light hover:text-dark transition">
         ← Back to Blogs
@@ -99,28 +99,32 @@
     <p>© 2025 Muhammad Ehtisham | Cybersecurity Student & SOC Analyst</p>
   </footer>
 
+  <!-- JS -->
   <script>
     const blogs = {
       wildweb: `
         <h2 class="text-3xl font-bold mb-4 text-primary">🕵️‍♂️ Diving into the Wild Web: Shodan, Open Ports, and Secrets Left Exposed</h2>
         <p>It all started one restless night with nothing but curiosity and a Kali Linux VM. I had heard about Shodan, the search engine that lets you peek into every device exposed to the internet. I asked myself: “What’s really out there, waiting to be discovered?”</p>
-        <p>At first, it was frustrating. Most of the systems I tried to reach were offline, unresponsive, or just dead. Roughly 80% of my initial searches yielded nothing. But giving up wasn’t an option...</p>
-        <p>I began refining my searches — filtering by open ports, software banners, and geographic location. Slowly, the veil lifted, and I started seeing the real playground...</p>
-        <p>By the end of the night, I had a notebook full of findings, screenshots, and notes about system behavior. More importantly, I had learned how curiosity, persistence, and methodical exploration are just as crucial as any tool in a cybersecurity toolkit.</p>
+        <p>At first, it was frustrating. Most of the systems I tried to reach were offline, unresponsive, or just dead. Roughly 80% of my initial searches yielded nothing. It felt like chasing ghosts in a digital graveyard. But giving up wasn’t an option. I began refining my searches — filtering by open ports, software banners, and geographic location. Slowly, the veil lifted, and I started seeing the real playground.</p>
+        <p>There they were: SSH servers left with default passwords, FTP directories exposing sensitive files, outdated web panels that hadn’t been patched in years. Some had configuration files sitting open, credentials still in plain text, logs revealing users’ activity. Every discovery sent an adrenaline rush through me. This was real-world hacking — not in a lab, not simulated — the kind where mistakes and oversights by others could be exploited in a professional pentest.</p>
+        <p>I dove deeper, documenting each vulnerable host, each exposed port, and every weak service. I learned quickly that VAPT isn’t about exploitation alone. It’s about observation, patience, and understanding the attack surface. Each misconfiguration I discovered taught me the patterns attackers look for, and how small errors — outdated firmware, default credentials, unprotected directories — could compromise entire systems.</p>
+        <p>By the end of the night, I had a notebook full of findings, screenshots, and notes about system behavior. More importantly, I had learned how curiosity, persistence, and methodical exploration are just as crucial as any tool in a cybersecurity toolkit. It was addictive, thrilling, and humbling all at once — a reminder that the real internet is messy, dynamic, and full of lessons waiting for anyone bold enough to look.</p>
       `,
+
       ratta: `
         <h2 class="text-3xl font-bold mb-4 text-primary">🎓 Breaking Out of the Ratta System: Learning Cybersecurity on My Own Terms</h2>
-        <p>University life in Pakistan can be a strange paradox for cybersecurity students. At Air University, the system is designed to reward memorization and punctuality...</p>
-        <p>I found myself constantly at a crossroads — between grades and growth, between rote learning and real experimentation...</p>
-        <p>Late nights became my classroom. I built networks, broke configurations, and learned from every failure. The more I explored, the more I realized that cybersecurity cannot be learned through memorization alone.</p>
-        <p>Grades matter in transcripts, but skills matter in the field. That became my mantra.</p>
+        <p>University life in Pakistan can be a strange paradox for cybersecurity students. At Air University, the system is designed to reward memorization, punctuality, and exam scores. Grades are king, and the “ratta” system — where rote learning dominates — leaves little room for experimentation. For a field like cybersecurity, which thrives on curiosity, hands-on practice, and creative problem-solving, this is a huge challenge.</p>
+        <p>I found myself constantly at a crossroads. On one hand, there were exams, assignments, and back-to-back lectures demanding my attention. On the other, there were virtual machines to configure, Kali tools to explore, packet captures to analyze, and mini pentesting experiments waiting to be run. Choosing between marks and practical learning often meant sacrifices — lower grades, occasional backlogs, and sleepless nights. But I made my choice: I prioritized skill and experience over immediate academic recognition.</p>
+        <p>Late nights became my classroom. I built networks from scratch, misconfigured firewalls to see what would happen, traced traffic to understand anomalies, and wrote scripts to automate small tasks. Every mistake became a lesson, every frustration an insight. The chaos was intense — timetable clashes, fatigue, and the constant mental juggling of coursework and projects — yet I embraced it.</p>
+        <p>Over time, I realized something crucial: cybersecurity cannot be taught through memorization alone. Understanding systems, identifying vulnerabilities, and defending networks requires a mindset cultivated by exploration, curiosity, and real-world experimentation. Grades matter in a transcript, but skills matter in the field. And though the path was challenging, messy, and sometimes lonely, I started seeing the payoff: a foundation of knowledge and hands-on experience that no exam could ever provide.</p>
       `,
+
       soc: `
         <h2 class="text-3xl font-bold mb-4 text-primary">🧠 From Intern to Threat Hunter: Living the SOC Life</h2>
-        <p>The first time I logged into a live SOC dashboard, it felt like stepping into the nerve center of a cyber battlefield. Alerts were popping up everywhere...</p>
-        <p>Working as a SOC Analyst & Threat Hunting Intern taught me that cybersecurity is as much detective work as it is technical skill.</p>
-        <p>Proactive threat hunting became my favorite challenge. Using frameworks like MITRE ATT&CK, I mapped attacker techniques, studied exploitation paths, and validated Indicators of Compromise.</p>
-        <p>By the end of my internship, curiosity had turned into capability — the ability to think like an attacker, respond like a defender, and stay one step ahead.</p>
+        <p>The first time I logged into a live SOC dashboard, it felt like stepping into the nerve center of a cyber battlefield. Alerts were popping up across SIEM, EDR, and IDS tools — failed logins, suspicious outbound connections, unknown processes, and anomalous network traffic. Each alert was a potential threat, a story waiting to be deciphered.</p>
+        <p>Working as a SOC Analyst & Threat Hunting Intern, I learned quickly that cybersecurity is as much detective work as it is technical skill. Monitoring real-time events required patience, analytical thinking, and the ability to connect disparate pieces of information. What looked like noise to others could be the first sign of an advanced persistent threat (APT). I traced logs across endpoints, correlated events across multiple systems, and investigated anomalies with a methodical approach.</p>
+        <p>Proactive threat hunting became my favorite challenge. Using frameworks like MITRE ATT&CK, I mapped attacker techniques, studied potential exploitation paths, and validated Indicators of Compromise. Beyond monitoring, I performed vulnerability assessments and conducted small-scale pen-tests to understand how attackers might navigate network defenses. Each investigation sharpened my ability to anticipate threats and respond proactively rather than reactively.</p>
+        <p>Freelancing projects further expanded my experience. I automated monitoring tasks, tuned SIEM alerts, analyzed packet captures, and even documented security processes — all while building my portfolio and gaining real-world exposure. By the end of my internship, I had transformed curiosity into capability: understanding the mindset of attackers, mastering defense tools, and learning that being a SOC analyst is not just about reacting to alerts — it’s about thinking ahead, connecting dots, and staying one step ahead in an ever-changing landscape.</p>
       `
     };
 
