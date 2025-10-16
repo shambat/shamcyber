@@ -9,15 +9,14 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary: '#00aaff', dark: '#0a0a23', light: '#f5f6fa' },
-          fontFamily: { sans: ['Poppins', 'sans-serif'] },
-          keyframes: {
-            pulseGlow: {
-              '0%,100%': { opacity: 1, textShadow: '0 0 20px #00aaff' },
-              '50%': { opacity: 0.6, textShadow: '0 0 5px #00aaff' },
-            },
+          colors: {
+            primary: '#00aaff',
+            dark: '#0a0a23',
+            light: '#f5f6fa',
           },
-          animation: { pulseGlow: 'pulseGlow 2s infinite' },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
         },
       },
     };
@@ -32,50 +31,53 @@
       <a href="https://ehtisham.space" class="text-2xl font-bold tracking-wide hover:text-primary transition">
         EHTISHAM<span class="text-primary">.SPACE</span>
       </a>
-      <span class="text-gray-400 text-sm">Cybersecurity Blog</span>
+      <nav class="space-x-6">
+        <a href="https://ehtisham.space" class="hover:text-primary transition">Main Site</a>
+        <a href="/blog/" class="text-primary font-semibold">Blogs</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-dark via-slate-800 to-gray-900 text-center py-20 px-4">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-pulseGlow">
-      Cybersecurity Blogs
-    </h1>
-    <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-      My digital journal of experiences, research, and lessons learned in the world of cybersecurity.
-    </p>
-  </section>
-
-  <!-- Blog List -->
-  <main class="max-w-5xl mx-auto py-16 px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-      <h2 class="text-xl font-semibold mb-2 text-primary">🕵️‍♂️ Diving into the Wild Web</h2>
-      <p class="text-gray-300 text-sm mb-4">
-        Exploring Shodan, open ports, and the secrets that lie exposed across the internet...
+  <!-- Blog Cards Section -->
+  <main class="min-h-screen flex flex-col justify-center items-center bg-dark text-white px-4 py-16">
+    <div class="max-w-5xl w-full text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">Cybersecurity Blogs</h1>
+      <p class="text-gray-400 mb-12 max-w-2xl mx-auto text-lg">
+        My personal space for sharing experiences, research, and reflections from my cybersecurity journey.
       </p>
-      <a href="/blog/b1/index.html" class="text-primary border border-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition inline-block">Read More</a>
-    </div>
 
-    <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-      <h2 class="text-xl font-semibold mb-2 text-primary">🎓 Breaking Out of the Ratta System</h2>
-      <p class="text-gray-300 text-sm mb-4">
-        How I broke free from rote learning to pursue real-world cybersecurity skills...
-      </p>
-      <a href="/blog/b2/index.html" class="text-primary border border-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition inline-block">Read More</a>
-    </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Blog 1 -->
+        <div class="bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition">
+          <h3 class="text-xl font-semibold mb-3">Diving into the Wild Web</h3>
+          <p class="text-gray-400 text-sm mb-4">
+            Exploring the hidden corners of the internet through Shodan and discovering lessons about exposure and awareness.
+          </p>
+          <a href="/blog/b1/" class="text-primary hover:underline font-medium">Read More →</a>
+        </div>
 
-    <div class="bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-      <h2 class="text-xl font-semibold mb-2 text-primary">🧠 From Intern to Threat Hunter</h2>
-      <p class="text-gray-300 text-sm mb-4">
-        My journey into the world of SOC operations, incident response, and proactive threat hunting...
-      </p>
-      <a href="/blog/b3/index.html" class="text-primary border border-primary px-4 py-2 rounded hover:bg-primary hover:text-dark transition inline-block">Read More</a>
+        <!-- Blog 2 -->
+        <div class="bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition">
+          <h3 class="text-xl font-semibold mb-3">Breaking Out of the Ratta System</h3>
+          <p class="text-gray-400 text-sm mb-4">
+            How I learned cybersecurity beyond rote memorization — through hands-on labs, curiosity, and self-driven exploration.
+          </p>
+          <a href="/blog/b2/" class="text-primary hover:underline font-medium">Read More →</a>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="bg-slate-900 rounded-2xl p-6 border border-gray-800 hover:border-primary transition">
+          <h3 class="text-xl font-semibold mb-3">Inside the SOC</h3>
+          <p class="text-gray-400 text-sm mb-4">
+            Experiencing the SOC environment — understanding workflows, analyzing incidents, and developing the mindset of a defender.
+          </p>
+          <a href="/blog/b3/" class="text-primary hover:underline font-medium">Read More →</a>
+        </div>
+      </div>
+
+      <p class="text-gray-400 mt-12 text-sm">More blogs coming soon...</p>
     </div>
   </main>
-
-  <section class="text-center text-gray-400 pb-24">
-    <p>📝 More blogs coming soon... Stay tuned!</p>
-  </section>
 
   <!-- Footer -->
   <footer class="bg-dark text-gray-400 py-6 text-center border-t border-gray-800">
