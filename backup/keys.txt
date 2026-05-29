@@ -3,7 +3,7 @@
 AWS_ACCESS_KEY_ID = AKIAFAKEKEYFORYOURSCAN
 AWS_SECRET_ACCESS_KEY = wJalrXUtnFEMI/K7MDENG/bPxRfiCYFAKEKEY
 
-project_id = ehtisham-space-secure
+project_id = shamtech-online-secure
 admin_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCFAKE.JWT.TOKEN
 
 ---
@@ -15,4 +15,4 @@ This file is intentionally placed here as a honeypot for those running dirsearch
 If you found this ethically — good recon!
 
 Stay curious, stay legal.
-— Muhammad Ehtisham | ehtisham.space
+— Muhammad Ehtisham | shamtech.online
