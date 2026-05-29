@@ -7,4 +7,4 @@ SECRET_KEY=th1sisjust4fun
 Note: This is a decoy file placed for educational security awareness.  
 You didn’t find a vulnerability — you found a lesson in deception.
 
-– ehtisham.space
+– shamtech.online
